@@ -235,13 +235,13 @@ const handleSubmit = async (e) => {
   setStatus({ message: '', isSuccess: false, show: false });
 
   try {
-  const res = await fetch(
-  'https://portfolio-64dc.onrender.com/api/contact', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(formData)
-});
-
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/api/contact`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    });
 
     const contentType = response.headers.get('content-type');
 
