@@ -72,16 +72,11 @@ app.post('/api/contact', async (req, res) => {
   }
 });
 
-// const path = require('path');
 
-// // Serve static files from React
-// app.use(express.static(path.join(__dirname, '../client/build')));
-
-// // Serve index.html on all unknown routes
-// app.get('*', (req, res) => {
-//   res.sendFile(path.join(__dirname, '../client/build/index.html'));
-// });
-
+// Root route for test
+app.get('/', (req, res) => {
+  res.send('✅ Backend server is working!');
+});
 
 // Start server
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
