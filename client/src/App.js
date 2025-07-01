@@ -9,6 +9,7 @@ import Projects from './components/Projects';
 import Profiles from './components/Profiles';
 import Contact from './components/Contact';
 import Experience from './components/Experience';
+import { Analytics } from "@vercel/analytics/react"
 
 function App() {
   const [theme, setTheme] = useState('dark');
