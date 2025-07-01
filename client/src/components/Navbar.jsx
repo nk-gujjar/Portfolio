@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaMoon, FaSun, FaBars, FaTimes, FaFileDownload } from 'react-icons/fa';
 import styled from 'styled-components';
-import resume_path from '../assets/files/Nitesh_kumar_AI_CV.pdf'; // Update with your actual resume path
+import resume_path from '../assets/files/Nitesh_Kumar_AI_CV.pdf'; // Update with your actual resume path
 
 const Nav = styled.nav`
   position: fixed;

@@ -8,8 +8,36 @@ import dishimg from '../assets/images/dishimg.png';
 import chessbotimg from '../assets/images/chessbot.png';
 import ngoManagerimg from '../assets/images/ngoManagerimg.png';
 import riscimg from '../assets/images/risc-vimg.png';
+import talkfillimg from '../assets/images/talkfillimg.jpeg';
+import cppNNimg from '../assets/images/cppNN-img.png';
+import { useState } from 'react';
 
 const ProjectsContainer = styled.section``;
+
+const FilterButtons = styled.div`
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+`;
+
+const FilterButton = styled.button`
+  padding: 0.5rem 1.5rem;
+  background: ${({ active, theme }) => 
+    active ? theme.primary : theme.body === '#121212' ? '#2a2a2a' : '#f0f0f0'};
+  color: ${({ active, theme }) => 
+    active ? '#fff' : theme.text};
+  border: none;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    background: ${({ theme }) => theme.primary};
+    color: white;
+  }
+`;
 
 const ProjectsGrid = styled.div`
   display: grid;
@@ -106,23 +134,23 @@ const LinkButton = styled.a`
 `;
 
 const projectsData = [
- 
   {
     title: 'Cattle Muzzle Recognition',
     description: 'Built an EfficientNet-based model to identify and re-identify buffaloes and cows using unique muzzle patterns for livestock tracking and health monitoring.',
     tech: ['Python', 'TensorFlow', 'EfficientNet', 'OpenCV'],
     github: 'https://github.com/nk-gujjar/Buffalo-re-identification',
     live: null,
-    image: cattleimg
+    image: cattleimg,
+    category: 'AI'
   },
-  
   {
     title: 'QuickEvent – AI Chatbot Scheduler',
     description: 'Created a groq-based chatbot with voice/text input to schedule events via Google Calendar using natural language.',
     tech: ['Python','LLM', 'Voice-to-text', 'Streamlit', 'AI', 'Google Calendar API'],
     github: 'https://github.com/nk-gujjar/Chatbot',
     live: null,
-    image: quickeventimg
+    image: quickeventimg,
+    category: 'AI'
   },
   {
     title: 'DeepFake Detector',
@@ -130,16 +158,17 @@ const projectsData = [
     tech: ['Python', 'CNN', 'Streamlit', 'OpenCV','ML'],
     github: 'https://huggingface.co/Niteshgujjar2612/deepfake-detector',
     live: null,
-    image: deepfakeimg
+    image: deepfakeimg,
+    category: 'AI'
   },
-
   {
     title: 'Dish Suggester',
     description: 'Built a Streamlit app that suggests recipes using text/image inputs. Used Groq Vision API for ingredient detection, LLaMA for recipe generation, and MongoDB GridFS for tempprary image storage.',
     tech: ['Python', 'LLM', 'Streamlit', 'API','MongoDb'],
     github: 'https://github.com/nk-gujjar/Dish-suggester',
     live: 'https://dish-suggester.streamlit.app/',
-    image: dishimg
+    image: dishimg,
+    category: 'AI'
   },
   {
     title: 'AI Chessbot',
@@ -147,7 +176,26 @@ const projectsData = [
     tech: ['Python', 'Deep Learning'],
     github: 'https://github.com/nk-gujjar/AI-Chessbot',
     live: null,
-    image: chessbotimg
+    image: chessbotimg,
+    category: 'AI'
+  },
+  {
+    title: 'Talk & Fill',
+    description: 'A Chrome extension that fills Google Forms using voice. Speaks questions aloud, converts speech to text (Whisper), corrects grammar (Llama3-70B), and auto-fills responses.',
+    tech: ['Javascript', 'LLM', 'Text-to-Speech','Chrome Extension API', 'Speech-to-Text'],
+    github: 'https://github.com/nk-gujjar/Talk-and-Fill',
+    live: null,
+    image: talkfillimg,
+    category: 'AI'
+  },
+  {
+    title: 'Build Your Own NN (C++)',
+    description: 'Developed a fully customizable neural network library in C++ from scratch. Supports adding layers, defining architectures, forward and backward propagation, and training on datasets without external ML libraries.',
+    tech: ['C++', 'Neural Networks','Machine Learning', 'Deep Learning', 'Data Structures'],
+    github: 'https://github.com/nk-gujjar/Build-Your-Own-NN--Cpp',
+    live: null,
+    image: cppNNimg,
+    category: 'AI'
   },
   {
     title: 'NGO Manager',
@@ -155,19 +203,27 @@ const projectsData = [
     tech: ['React Js', 'Node.js','SQL', 'Express'],
     github: 'https://github.com/MrStelk/T02-CS305',
     live: null,
-    image: ngoManagerimg
+    image: ngoManagerimg,
+    category: 'Others'
   },
-   {
+  {
     title: 'RISC-V Simulator',
     description: 'Developed a C++ RISC-V simulator supporting single-cycle and pipelined execution. Included cache hierarchy, branch prediction, and performance metrics like CPI, hit/miss rate for accurate architecture simulation.',
     tech: ['C++', 'RISC-V', 'Computer Architecture'],
     github: 'https://github.com/bhuriamohit/simulator.git',
     live: null,
-    image: riscimg
+    image: riscimg,
+    category: 'Others'
   }
 ];
 
 const Projects = () => {
+  const [activeFilter, setActiveFilter] = useState('All');
+  
+  const filteredProjects = activeFilter === 'All' 
+    ? projectsData 
+    : projectsData.filter(project => project.category === activeFilter);
+
   return (
     <ProjectsContainer id="projects">
       <motion.h2
@@ -187,8 +243,20 @@ const Projects = () => {
         Here are some of my recent projects
       </motion.p>
       
+      <FilterButtons>
+        {['All', 'AI', 'Others'].map((filter) => (
+          <FilterButton
+            key={filter}
+            active={activeFilter === filter}
+            onClick={() => setActiveFilter(filter)}
+          >
+            {filter === 'AI' ? 'AI Projects' : filter}
+          </FilterButton>
+        ))}
+      </FilterButtons>
+      
       <ProjectsGrid>
-        {projectsData.map((project, index) => (
+        {filteredProjects.map((project, index) => (
           <ProjectCard
             key={project.title}
             initial={{ opacity: 0, y: 50 }}
@@ -197,16 +265,15 @@ const Projects = () => {
             viewport={{ once: true }}
           >
             <ProjectImage>
-  <img 
-    src={project.image} 
-    alt={project.title} 
-    onError={(e) => {
-      // Fallback if image fails to load
-      e.target.style.objectFit = 'contain';
-      e.target.src = 'fallback-image-url';
-    }}
-  />
-</ProjectImage>
+              <img 
+                src={project.image} 
+                alt={project.title} 
+                onError={(e) => {
+                  e.target.style.objectFit = 'contain';
+                  e.target.src = 'fallback-image-url';
+                }}
+              />
+            </ProjectImage>
             <ProjectContent>
               <ProjectTitle>
                 {project.title}

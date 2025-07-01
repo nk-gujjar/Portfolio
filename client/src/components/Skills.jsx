@@ -71,7 +71,7 @@ const skillsData = [
   {
     title: 'AI/ML',
     icon: <FaRobot />,
-    skills: ['TensorFlow', 'Keras', 'Scikit-learn', 'OpenCV', 'NLP', 'PyTorch']
+    skills: ['TensorFlow', 'Keras', 'Scikit-learn', 'OpenCV', 'NLP', 'PyTorch','Generative AI','Langchain','LLM']
   },
   {
     title: 'Web Dev',

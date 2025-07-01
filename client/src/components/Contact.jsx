@@ -242,9 +242,9 @@ const handleSubmit = async (e) => {
       },
       body: JSON.stringify(formData),
     });
-
+    // console.log('Response status:', response.status);
     const contentType = response.headers.get('content-type');
-
+    // console.log('Response content-type:', contentType);
     if (!contentType || !contentType.includes('application/json')) {
       const rawText = await response.text(); // Only read once
       console.error('❌ Expected JSON but got:', rawText);
