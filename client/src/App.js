@@ -35,8 +35,8 @@ function App() {
         <Skills />
         <Experience />
         <Projects />
-        <Certificates />
         <Profiles />
+        <Certificates />
         <Contact />
       </main>
     </ThemeProvider>
