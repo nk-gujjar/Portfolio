@@ -9,7 +9,8 @@ import Projects from './components/Projects';
 import Profiles from './components/Profiles';
 import Contact from './components/Contact';
 import Experience from './components/Experience';
-import { Analytics } from "@vercel/analytics/react"
+import Certificates from './components/Certificates';
+import { Analytics } from "@vercel/analytics/react";
 
 function App() {
   const [theme, setTheme] = useState('dark');
@@ -22,6 +23,7 @@ function App() {
   return (
     <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
       <GlobalStyle />
+      <Analytics />
       <Navbar 
         toggleTheme={toggleTheme} 
         theme={theme}
@@ -33,6 +35,7 @@ function App() {
         <Skills />
         <Experience />
         <Projects />
+        <Certificates />
         <Profiles />
         <Contact />
       </main>
