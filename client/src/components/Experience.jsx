@@ -51,6 +51,16 @@ const DescriptionItem = styled.li`
 `;
 
 const experienceData = [
+   {
+    company: "Annam.ai",
+    role: "AI Research Intern",
+    duration: "July 2025 - Present",
+    description: [
+      "Built a deep learning model to identify plant species and estimate age/growth from images.",
+      "Used computer vision to analyze leaf patterns, stem structure, and color for accurate detection.",
+      "Enabled real-time insights on plant health and development, reducing manual inspection efforts."
+    ]
+  },
   {
     company: "Easecruit",
     role: "Software Developer Intern",
