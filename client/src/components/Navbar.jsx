@@ -189,7 +189,7 @@ const Navbar = ({ toggleTheme, theme, isMenuOpen, setIsMenuOpen }) => {
     e.preventDefault();
     const link = document.createElement('a');
     link.href = resumeUrl;
-    link.download = 'Nitesh_Kumar_Resume.pdf'; // Update with your name
+    link.download = 'Nitesh_kumar_CV.pdf'; // Update with your name
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);

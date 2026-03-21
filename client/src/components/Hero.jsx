@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
-import profileImg from '../assets/images/profile.jpeg'; // Make sure this path is correct
+import profileImg from '../assets/images/profile-img.png'; // Make sure this path is correct
 
 const HeroContainer = styled.section`
   display: flex;
@@ -110,14 +110,14 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}
         >
-          Software Developer & AI/ML Enthusiast
+          Software Developer | Agentic AI Engineer | GenAI Developer
         </Subtitle>
         <Bio
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.6 }}
         >
-          Passionate about solving real-world problems using intelligent tech and efficient code. With a strong foundation in competitive programming and hands-on experience in AI projects, I build with curiosity and purpose.
+          I build production-ready AI systems at the intersection of software engineering and Generative AI, focusing on multi-agent workflows, RAG pipelines, and LLM-driven applications to deliver scalable, reliable, and intelligent solutions for complex real-world problems.
         </Bio>
         <Button
           href="#contact"

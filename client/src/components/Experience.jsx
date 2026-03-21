@@ -51,16 +51,26 @@ const DescriptionItem = styled.li`
 `;
 
 const experienceData = [
+  {
+    company: "Infosys", 
+    role: "Specialist Programmer (Agentic AI)", 
+    duration: "Oct. 2025 - Present", 
+    description: [
+      "Architected autonomous multi-agent workflows using LangGraph and MCP for complex document reasoning.", 
+      "Developed scalable RAG pipelines and backend APIs with FastAPI for high-throughput knowledge retrieval.", 
+      "Integrated Langfuse and Guardrails to implement observability and validation for production LLM systems.", 
+    ]
+},
    {
     company: "Annam.ai",
     role: "AI Research Intern",
-    duration: "July 2025 - Present",
+    duration: "July 2025 - Oct. 2025",
     description: [
-      "Built a deep learning model to identify plant species and estimate age/growth from images.",
-      "Used computer vision to analyze leaf patterns, stem structure, and color for accurate detection.",
-      "Enabled real-time insights on plant health and development, reducing manual inspection efforts."
+      "Engineered Siamese Swin Transformers to identify plant species and predict growth stages from images.", 
+      "Applied computer vision for feature extraction of leaf patterns, stem structures, and phenological color.",
+      "Deployed automated vision pipelines for real-time health monitoring, minimizing manual inspection latency." 
     ]
-  },
+    },
   {
     company: "Easecruit",
     role: "Software Developer Intern",
